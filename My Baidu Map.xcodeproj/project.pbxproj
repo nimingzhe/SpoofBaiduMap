@@ -21,7 +21,7 @@
 		697A1E991A29D59700350B7E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 697A1E981A29D59700350B7E /* CoreGraphics.framework */; };
 		697A1E9B1A29D5A100350B7E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 697A1E9A1A29D5A100350B7E /* Security.framework */; };
 		697A1E9D1A29D5C200350B7E /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 697A1E9C1A29D5C200350B7E /* mapapi.bundle */; };
-		69908E331A2ACFC4002B9289 /* libbaidumapapi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69908E321A2ACFC4002B9289 /* libbaidumapapi.a */; };
+		69908E351A2B705A002B9289 /* libbaidumapapi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69908E341A2B705A002B9289 /* libbaidumapapi.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,7 +116,7 @@
 		697A1E981A29D59700350B7E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		697A1E9A1A29D5A100350B7E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		697A1E9C1A29D5C200350B7E /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = mapapi.bundle; sourceTree = "<group>"; };
-		69908E321A2ACFC4002B9289 /* libbaidumapapi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbaidumapapi.a; sourceTree = "<group>"; };
+		69908E341A2B705A002B9289 /* libbaidumapapi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbaidumapapi.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +128,7 @@
 				697A1E991A29D59700350B7E /* CoreGraphics.framework in Frameworks */,
 				697A1E971A29D58D00350B7E /* SystemConfiguration.framework in Frameworks */,
 				697A1E951A29D57D00350B7E /* OpenGLES.framework in Frameworks */,
-				69908E331A2ACFC4002B9289 /* libbaidumapapi.a in Frameworks */,
+				69908E351A2B705A002B9289 /* libbaidumapapi.a in Frameworks */,
 				697A1E931A29D56D00350B7E /* QuartzCore.framework in Frameworks */,
 				697A1E911A29D55B00350B7E /* CoreLocation.framework in Frameworks */,
 			);
@@ -214,7 +214,7 @@
 		697A1E4F1A29D47B00350B7E /* 百度SDK */ = {
 			isa = PBXGroup;
 			children = (
-				69908E321A2ACFC4002B9289 /* libbaidumapapi.a */,
+				69908E341A2B705A002B9289 /* libbaidumapapi.a */,
 				697A1E501A29D49700350B7E /* inc */,
 			);
 			name = "百度SDK";

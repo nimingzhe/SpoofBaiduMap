@@ -29,6 +29,9 @@
     _mapView.showsUserLocation = NO;
     _mapView.userTrackingMode = BMKUserTrackingModeFollow;
     _mapView.showsUserLocation = YES;
+    
+    _geoCodeSearch=[[BMKGeoCodeSearch alloc] init];
+    _geoCodeSearch.delegate=self;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -51,6 +54,7 @@
     [_mapView viewWillDisappear];
     _mapView.delegate = nil; // 不用时，置nil
 }
+
 
 - (IBAction)genSuiAction:(id)sender {
     self.luoPanButton.hidden=NO;
@@ -78,6 +82,64 @@
     [self.mapView zoomOut];
 }
 
+- (IBAction)luKuangAction:(id)sender {
+    if (self.luKuangButton.tag==0) {
+        [_mapView setMapType:BMKMapTypeTrafficOn];
+        self.luKuangButton.tag=1;
+        [self.luKuangButton setTitle:@"关闭路况图" forState:UIControlStateNormal];
+    }
+    else
+    {
+        [_mapView setMapType:BMKMapTypeStandard];
+        self.luKuangButton.tag=0;
+        [self.luKuangButton setTitle:@"打开路况图" forState:UIControlStateNormal];
+    }
+    
+}
+
+- (IBAction)searchAction:(id)sender
+{
+    
+    BMKReverseGeoCodeOption *reverseGeocodeSearchOption = [[BMKReverseGeoCodeOption alloc]init];
+    reverseGeocodeSearchOption.reverseGeoPoint = _locService.userLocation.location.coordinate;
+    
+    BOOL flag = [_geoCodeSearch reverseGeoCode:reverseGeocodeSearchOption];
+    
+    if(flag)
+    {
+        NSLog(@"反geo检索发送成功");
+    }
+    else
+    {
+        NSLog(@"反geo检索发送失败");
+    }
+
+}
+
+#pragma mark BMKGeoCodeSearchDelegate
+
+- (void)onGetGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error{
+    if (error == BMK_SEARCH_NO_ERROR) {
+        //在此处理正常结果
+        NSLog(@"地址：%@",result.address);
+    }
+    else {
+        NSLog(@"抱歉，未找到结果");
+    }
+}
+
+- (void)onGetReverseGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKReverseGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error;
+{
+    if (error == BMK_SEARCH_NO_ERROR) {
+        //在此处理正常结果
+        NSLog(@"地址：%@",result.address);
+    }
+    else {
+        NSLog(@"抱歉，未找到结果");
+    }
+}
+
+
 #pragma mark BMKLocationServiceDelegate
 
 - (void)willStartLocatingUser
@@ -95,12 +157,12 @@
     [_mapView updateLocationData:userLocation];
     
     
-    NSLog(@"heading is %@",userLocation.heading);
+    
 }
 
 - (void)didUpdateUserLocation:(BMKUserLocation *)userLocation
 {
-    NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
+    
     [_mapView updateLocationData:userLocation];
     
 }
