@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,8 +15,69 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hdB-vR-pxS" customClass="BMKMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TzY-6Z-qDd">
+                                <rect key="frame" x="24" y="448" width="60" height="30"/>
+                                <state key="normal" title="跟随定位">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="genSuiAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XmA-Ij-2IP"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvB-eH-4o5">
+                                <rect key="frame" x="24" y="448" width="60" height="30"/>
+                                <state key="normal" title="罗盘定位">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="luoPanAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NCP-oX-wvg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Slr-Ba-09v">
+                                <rect key="frame" x="523" y="400" width="30" height="30"/>
+                                <state key="normal" title="放大">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="zoomInAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hT7-nh-FZY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oiZ-f2-zOD">
+                                <rect key="frame" x="523" y="444" width="30" height="30"/>
+                                <state key="normal" title="缩小">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="zoomOutAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fYQ-zp-dvP"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hdB-vR-pxS" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="2ST-8M-0Go"/>
+                            <constraint firstAttribute="trailing" secondItem="Slr-Ba-09v" secondAttribute="trailing" constant="47" id="9cr-8i-q3b"/>
+                            <constraint firstAttribute="trailing" secondItem="hdB-vR-pxS" secondAttribute="trailing" id="DYY-iA-aAk"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oiZ-f2-zOD" secondAttribute="bottom" constant="126" id="aaH-7u-rl1"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hdB-vR-pxS" secondAttribute="bottom" id="bMM-eS-YrL"/>
+                            <constraint firstItem="hdB-vR-pxS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dBR-SN-gMC"/>
+                            <constraint firstAttribute="trailing" secondItem="oiZ-f2-zOD" secondAttribute="trailing" constant="47" id="edp-DV-QMa"/>
+                            <constraint firstItem="oiZ-f2-zOD" firstAttribute="top" secondItem="Slr-Ba-09v" secondAttribute="bottom" constant="14" id="nOD-sp-MN3"/>
+                            <constraint firstItem="uvB-eH-4o5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="24" id="s8j-0A-JYc"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="TzY-6Z-qDd" secondAttribute="bottom" constant="122" id="snx-Th-XEr"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="uvB-eH-4o5" secondAttribute="bottom" constant="122" id="wEF-dr-vxj"/>
+                            <constraint firstItem="TzY-6Z-qDd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="24" id="xCx-hU-5hk"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="genSuiButton" destination="TzY-6Z-qDd" id="Hnm-fr-czJ"/>
+                        <outlet property="luoPanButton" destination="uvB-eH-4o5" id="jHh-9g-oQd"/>
+                        <outlet property="mapView" destination="hdB-vR-pxS" id="Kuo-2U-lU6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
