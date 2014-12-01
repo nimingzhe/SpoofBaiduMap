@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
@@ -65,17 +65,43 @@
                                     <action selector="luKuangAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wc9-IK-rNZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kta-12-DPt">
-                                <rect key="frame" x="387" y="27" width="30" height="30"/>
-                                <state key="normal" title="搜索">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="searchAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="luZ-Vt-c3K"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uUZ-fI-4Pr">
-                                <rect key="frame" x="226" y="30" width="150" height="30"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ljj-lL-eFo" userLabel="View-detail">
+                                <rect key="frame" x="0.0" y="511" width="600" height="75"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地址" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKi-31-6jk">
+                                        <rect key="frame" x="13" y="0.0" width="34" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cE4-b4-oSh">
+                                        <rect key="frame" x="190" y="37" width="45" height="30"/>
+                                        <state key="normal" title="下一个">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="nextPoiAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rfg-cn-GCH"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wSw-8r-dOh">
+                                        <rect key="frame" x="115" y="37" width="45" height="30"/>
+                                        <state key="normal" title="到这去">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="goToPoiAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8ds-VU-IR6"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="1qN-Cj-nAr"/>
+                                    <constraint firstItem="bKi-31-6jk" firstAttribute="leading" secondItem="Ljj-lL-eFo" secondAttribute="leading" constant="13" id="HBM-6J-Wog"/>
+                                    <constraint firstItem="bKi-31-6jk" firstAttribute="top" secondItem="Ljj-lL-eFo" secondAttribute="top" id="gbu-xG-RW8"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uUZ-fI-4Pr">
+                                <rect key="frame" x="225" y="30" width="150" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="UJV-4M-G1G"/>
                                 </constraints>
@@ -88,6 +114,8 @@
                             <constraint firstItem="hdB-vR-pxS" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="2ST-8M-0Go"/>
                             <constraint firstAttribute="trailing" secondItem="Slr-Ba-09v" secondAttribute="trailing" constant="47" id="9cr-8i-q3b"/>
                             <constraint firstAttribute="trailing" secondItem="hdB-vR-pxS" secondAttribute="trailing" id="DYY-iA-aAk"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Ljj-lL-eFo" secondAttribute="bottom" constant="14" id="LDQ-SZ-dii"/>
+                            <constraint firstAttribute="trailing" secondItem="Ljj-lL-eFo" secondAttribute="trailing" id="Obc-Ne-a2N"/>
                             <constraint firstAttribute="centerX" secondItem="uUZ-fI-4Pr" secondAttribute="centerX" id="VHT-JX-1Dv"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oiZ-f2-zOD" secondAttribute="bottom" constant="126" id="aaH-7u-rl1"/>
                             <constraint firstItem="uUZ-fI-4Pr" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="30" id="bCb-R9-C6X"/>
@@ -99,10 +127,9 @@
                             <constraint firstAttribute="trailing" secondItem="Q0i-MR-ptv" secondAttribute="trailing" constant="24" id="nh8-Ls-5BS"/>
                             <constraint firstItem="uvB-eH-4o5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="24" id="s8j-0A-JYc"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="TzY-6Z-qDd" secondAttribute="bottom" constant="122" id="snx-Th-XEr"/>
+                            <constraint firstItem="Ljj-lL-eFo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="uto-nO-EDl"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="uvB-eH-4o5" secondAttribute="bottom" constant="122" id="wEF-dr-vxj"/>
                             <constraint firstItem="TzY-6Z-qDd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="24" id="xCx-hU-5hk"/>
-                            <constraint firstItem="Kta-12-DPt" firstAttribute="leading" secondItem="uUZ-fI-4Pr" secondAttribute="trailing" constant="11" id="yt6-lS-LhY"/>
-                            <constraint firstItem="Kta-12-DPt" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="7" id="yuZ-b3-uXd"/>
                         </constraints>
                     </view>
                     <connections>
@@ -110,6 +137,8 @@
                         <outlet property="luKuangButton" destination="Q0i-MR-ptv" id="aaD-BI-zwG"/>
                         <outlet property="luoPanButton" destination="uvB-eH-4o5" id="jHh-9g-oQd"/>
                         <outlet property="mapView" destination="hdB-vR-pxS" id="Kuo-2U-lU6"/>
+                        <outlet property="poiAddressLabel" destination="bKi-31-6jk" id="Gxd-F9-4Hq"/>
+                        <outlet property="poiDetailView" destination="Ljj-lL-eFo" id="Z45-PI-BcB"/>
                         <outlet property="searchTextField" destination="uUZ-fI-4Pr" id="YzM-3I-CCm"/>
                     </connections>
                 </viewController>
