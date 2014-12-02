@@ -128,6 +128,10 @@
 #pragma mark UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
+    _mapView.showsUserLocation = NO;
+    _mapView.userTrackingMode = BMKUserTrackingModeNone;
+    _mapView.showsUserLocation = YES;
+    
     [self.searchTextField endEditing:YES];
     
     BMKReverseGeoCodeOption *reverseGeocodeSearchOption = [[BMKReverseGeoCodeOption alloc]init];
