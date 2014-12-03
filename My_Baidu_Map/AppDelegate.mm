@@ -70,6 +70,9 @@
 {
     if (0 == iError) {
         NSLog(@"授权成功");
+        self.isAuthorizationSuccess=YES;
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:@"authorizationSuccess" object:self userInfo:nil];
     }
     else {
         NSLog(@"onGetPermissionState %d",iError);

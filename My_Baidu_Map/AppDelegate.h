@@ -16,6 +16,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property BMKMapManager* mapManager;
+@property BOOL isAuthorizationSuccess;;
 
 @end
 

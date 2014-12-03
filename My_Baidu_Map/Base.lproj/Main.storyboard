@@ -146,5 +146,107 @@
             </objects>
             <point key="canvasLocation" x="244" y="360"/>
         </scene>
+        <!--Path View Controller-->
+        <scene sceneID="8En-Ut-pdW">
+            <objects>
+                <viewController storyboardIdentifier="path" id="NGb-9P-0W7" customClass="PathViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vHv-en-yDq"/>
+                        <viewControllerLayoutGuide type="bottom" id="zQ8-3j-foc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yJn-jn-eMe">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="起点" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2wd-kN-Kvl">
+                                <rect key="frame" x="71" y="91" width="34" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="终点" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q0t-Mb-UDo">
+                                <rect key="frame" x="71" y="145" width="34" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rq8-W9-lFs">
+                                <rect key="frame" x="285" y="28" width="30" height="30"/>
+                                <state key="normal" title="驾车">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="driveAction:" destination="NGb-9P-0W7" eventType="touchUpInside" id="4SF-5O-nkl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EuP-yr-upz">
+                                <rect key="frame" x="352" y="28" width="30" height="30"/>
+                                <state key="normal" title="步行">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="walkAction:" destination="NGb-9P-0W7" eventType="touchUpInside" id="9bX-FY-wzM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F6j-Wj-A15">
+                                <rect key="frame" x="16" y="28" width="30" height="30"/>
+                                <state key="normal" title="取消">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelAction:" destination="NGb-9P-0W7" eventType="touchUpInside" id="2Uz-kS-Mff"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1z2-oM-0Ml">
+                                <rect key="frame" x="219" y="28" width="30" height="30"/>
+                                <state key="normal" title="公交">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="busAction:" destination="NGb-9P-0W7" eventType="touchUpInside" id="xJK-jG-xqr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ak-a7-aAe">
+                                <rect key="frame" x="113" y="87" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dD8-l1-Nrj">
+                                <rect key="frame" x="113" y="141" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Q0t-Mb-UDo" firstAttribute="leading" secondItem="yJn-jn-eMe" secondAttribute="leading" constant="71" id="0NA-sI-ijH"/>
+                            <constraint firstItem="dD8-l1-Nrj" firstAttribute="leading" secondItem="Q0t-Mb-UDo" secondAttribute="trailing" constant="8" id="1wZ-aN-5Vn"/>
+                            <constraint firstItem="2wd-kN-Kvl" firstAttribute="top" secondItem="vHv-en-yDq" secondAttribute="bottom" constant="71" id="9lh-3a-R9a"/>
+                            <constraint firstItem="rq8-W9-lFs" firstAttribute="top" secondItem="vHv-en-yDq" secondAttribute="bottom" constant="8" id="GoA-Go-o1k"/>
+                            <constraint firstItem="EuP-yr-upz" firstAttribute="top" secondItem="vHv-en-yDq" secondAttribute="bottom" constant="8" id="GrB-h0-foK"/>
+                            <constraint firstItem="EuP-yr-upz" firstAttribute="leading" secondItem="rq8-W9-lFs" secondAttribute="trailing" constant="37" id="Jk0-zG-CcS"/>
+                            <constraint firstItem="Q0t-Mb-UDo" firstAttribute="top" secondItem="2wd-kN-Kvl" secondAttribute="bottom" constant="33" id="LJ1-rL-h7m"/>
+                            <constraint firstItem="4ak-a7-aAe" firstAttribute="leading" secondItem="2wd-kN-Kvl" secondAttribute="trailing" constant="8" id="N8d-hi-qba"/>
+                            <constraint firstItem="2wd-kN-Kvl" firstAttribute="leading" secondItem="yJn-jn-eMe" secondAttribute="leading" constant="71" id="Quo-d9-NNB"/>
+                            <constraint firstItem="F6j-Wj-A15" firstAttribute="top" secondItem="vHv-en-yDq" secondAttribute="bottom" constant="8" id="REF-Df-0RS"/>
+                            <constraint firstItem="4ak-a7-aAe" firstAttribute="top" secondItem="rq8-W9-lFs" secondAttribute="bottom" constant="29" id="VNS-ov-oOP"/>
+                            <constraint firstItem="1z2-oM-0Ml" firstAttribute="top" secondItem="vHv-en-yDq" secondAttribute="bottom" constant="8" id="ceD-K0-Tsa"/>
+                            <constraint firstItem="dD8-l1-Nrj" firstAttribute="top" secondItem="4ak-a7-aAe" secondAttribute="bottom" constant="24" id="hZQ-3C-QE5"/>
+                            <constraint firstItem="rq8-W9-lFs" firstAttribute="leading" secondItem="1z2-oM-0Ml" secondAttribute="trailing" constant="36" id="qwA-fC-G8n"/>
+                            <constraint firstAttribute="centerX" secondItem="rq8-W9-lFs" secondAttribute="centerX" id="ziO-OQ-c8y"/>
+                            <constraint firstItem="F6j-Wj-A15" firstAttribute="leading" secondItem="yJn-jn-eMe" secondAttribute="leading" constant="16" id="ztg-eT-nd3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="endButton" destination="dD8-l1-Nrj" id="2jw-tB-9fi"/>
+                        <outlet property="startButton" destination="4ak-a7-aAe" id="X7n-5z-oOf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mDy-3f-a9o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1041" y="384"/>
+        </scene>
     </scenes>
 </document>

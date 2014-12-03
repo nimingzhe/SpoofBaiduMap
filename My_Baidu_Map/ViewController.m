@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 
+
 @interface ViewController ()
 
 @end
@@ -49,6 +50,11 @@
 -(void)viewWillDisappear:(BOOL)animated
 {
     [_mapView viewWillDisappear];
+   
+}
+
+- (void)dealloc
+{
     _mapView.delegate = nil; // 不用时，置nil
     _locService.delegate = nil;
     _geoCodeSearch.delegate=nil;
@@ -100,31 +106,62 @@
 
 
 - (IBAction)goToPoiAction:(id)sender {
+    pathVC=[self.storyboard instantiateViewControllerWithIdentifier:@"path"];
+    pathVC.view.frame=CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+    pathVC.desPoi=_poiArray[_currentPoiIndex];
+    pathVC.currentLocation=_locService.userLocation;
+    pathVC.city=_currentCity;
+    [self addChildViewController:pathVC];
+    [self.view addSubview:pathVC.view];
 }
 
 - (IBAction)nextPoiAction:(id)sender {
     _currentPoiIndex++;
     if (_currentPoiIndex<[_poiArray count]) {
         BMKPoiInfo* tempPoi=_poiArray[_currentPoiIndex];
-        self.poiAddressLabel.text=tempPoi.address;
+        self.poiAddressLabel.text=tempPoi.name;
         _mapView.centerCoordinate = tempPoi.pt;
-        NSLog(@"tempoi.pt x:%f,y:%f",tempPoi.pt.latitude,tempPoi.pt.longitude);
-        NSLog(@"_mapView.centerCoordinate x:%f,y:%f",_mapView.centerCoordinate.latitude,_mapView.centerCoordinate.longitude);
+//        NSLog(@"tempoi.pt x:%f,y:%f",tempPoi.pt.latitude,tempPoi.pt.longitude);
+//        NSLog(@"_mapView.centerCoordinate x:%f,y:%f",_mapView.centerCoordinate.latitude,_mapView.centerCoordinate.longitude);
     }
     else
     {
         _currentPoiIndex=0;
         BMKPoiInfo* tempPoi=_poiArray[_currentPoiIndex];
-        self.poiAddressLabel.text=tempPoi.address;
+        self.poiAddressLabel.text=tempPoi.name;
         _mapView.centerCoordinate = tempPoi.pt;
         NSLog(@"tempoi.pt x:%f,y:%f",tempPoi.pt.latitude,tempPoi.pt.longitude);
         NSLog(@"_mapView.centerCoordinate x:%f,y:%f",_mapView.centerCoordinate.latitude,_mapView.centerCoordinate.longitude);
     }
-    
-    
-    
 }
 
+#pragma mark Public Method
+- (void)drawPath:(BMKPolyline*)pol
+{
+    if(pol==nil)
+    {
+        NSLog(@"pol is nil");
+    }
+    else
+    {
+        NSLog(@"点数：%d",pol.pointCount);
+    }
+    
+    [_mapView addOverlay:pol]; // 添加路线overlay
+}
+
+#pragma mark BMKMapViewDelegate
+- (BMKOverlayView*)mapView:(BMKMapView *)map viewForOverlay:(id<BMKOverlay>)overlay
+{
+    if ([overlay isKindOfClass:[BMKPolyline class]]) {
+        BMKPolylineView* polylineView = [[BMKPolylineView alloc] initWithOverlay:overlay] ;
+        polylineView.fillColor = [[UIColor cyanColor] colorWithAlphaComponent:1];
+        polylineView.strokeColor = [[UIColor blueColor] colorWithAlphaComponent:0.7];
+        polylineView.lineWidth = 3.0;
+        return polylineView;
+    }
+    return nil;
+}
 #pragma mark UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
@@ -172,7 +209,7 @@
             {
                 //将第一个点的坐标移到屏幕中央
                 _mapView.centerCoordinate = poi.pt;
-                self.poiAddressLabel.text=poi.address;
+                self.poiAddressLabel.text=poi.name;
                 _currentPoiIndex=0;
             }
             

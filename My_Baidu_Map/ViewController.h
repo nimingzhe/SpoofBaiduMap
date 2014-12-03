@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "BMapKit.h"
+#import "PathViewController.h"
 
 #define searchFlag 1
 #define getCurrentLocationFlag 2
 
 @interface ViewController : UIViewController <BMKMapViewDelegate,BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate,BMKPoiSearchDelegate,UITextFieldDelegate>
 {
+    PathViewController *pathVC;
     //定位
     BMKLocationService* _locService;
     
@@ -45,6 +47,8 @@
 - (IBAction)luKuangAction:(id)sender;
 - (IBAction)goToPoiAction:(id)sender;
 - (IBAction)nextPoiAction:(id)sender;
+
+- (void)drawPath:(BMKPolyline*)pol;
 
 @end
 
